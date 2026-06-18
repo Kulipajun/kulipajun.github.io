@@ -138,19 +138,6 @@ h4 {
   font-weight: 600;
 }
 
-.section-note {
-  margin: -8px 0 24px;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-code {
-  padding: 2px 5px;
-  background: #f3f3f3;
-  border-radius: 3px;
-  font-size: 0.82rem;
-}
-
 .news-list,
 .simple-list {
   margin: 0;
@@ -193,12 +180,17 @@ time,
 }
 
 .research-item h3 {
-  color: var(--blue);
   font-size: 1.02rem;
+  line-height: 1.45;
 }
 
 .research-item p {
   margin: 5px 0 8px;
+}
+
+.research-item .authors {
+  margin-bottom: 1px;
+  font-size: 0.88rem;
 }
 
 .research-item .meta {
@@ -207,6 +199,11 @@ time,
 
 .item-links {
   font-size: 0.84rem;
+}
+
+.equal-note {
+  color: var(--muted);
+  font-size: 0.72rem;
 }
 
 .subsection + .subsection {

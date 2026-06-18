@@ -5,8 +5,8 @@ import {
   navigation,
   news,
   profile,
+  publications,
   recognition,
-  researchProjects,
   service,
 } from "@data/site";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -58,22 +58,32 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </section>
 
     <section id="research">
-      <h2>Selected Research</h2>
-      <p class="section-note">
-        Placeholder projects for the first content pass. Images, titles, and links can
-        be replaced in <code>src/data/site.ts</code>.
-      </p>
+      <h2>Selected Publications</h2>
       <div class="research-list">
-        {researchProjects.map((project) => (
+        {publications.map((publication) => (
           <article class="research-item">
-            <img src={project.image} alt={project.imageAlt} loading="lazy" />
+            <a href={publication.links[0].url} aria-label={`Open ${publication.title}`}>
+              <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
+            </a>
             <div>
-              <h3>{project.title}</h3>
-              <p class="meta">{project.eyebrow} · {project.year}</p>
-              <p>{project.summary}</p>
-              <p class="item-links">
-                {project.links.map((link) => <a href={link.url}>{link.label}</a>)}
+              <h3>
+                <a href={publication.links[0].url}>{publication.title}</a>
+              </h3>
+              <p class="authors">
+                {publication.authors.map((author, index) => (
+                  <>
+                    {author.self ? <strong>{author.name}</strong> : author.name}
+                    {author.equal && <sup>*</sup>}
+                    {index < publication.authors.length - 1 ? ", " : ""}
+                  </>
+                ))}
               </p>
+              <p class="meta"><em>{publication.venue}</em>, {publication.year}</p>
+              <p>{publication.summary}</p>
+              <p class="item-links">
+                {publication.links.map((link) => <a href={link.url}>{link.label}</a>)}
+              </p>
+              <p class="equal-note"><sup>*</sup> Equal contribution</p>
             </div>
           </article>
         ))}

@@ -54,64 +54,43 @@ export const news = [
   },
 ];
 
-export type ResearchProject = {
-  number: string;
+export type Publication = {
   title: string;
-  eyebrow: string;
+  authors: { name: string; self?: boolean; equal?: boolean }[];
+  venue: string;
   summary: string;
   image: string;
   imageAlt: string;
   year: string;
-  tags: string[];
   links: { label: string; url: string }[];
-  reversed?: boolean;
 };
 
-export const researchProjects: ResearchProject[] = [
+export const publications: Publication[] = [
   {
-    number: "01",
-    title: "Perception Across Realities",
-    eyebrow: "XR perception study",
-    summary:
-      "A placeholder for research investigating how visual cues, spatial context, and embodiment influence perception across physical and extended realities.",
-    image: "/images/project-perception.svg",
-    imageAlt: "Abstract layered fields representing perception across realities",
-    year: "2026",
-    tags: ["Perception", "XR", "Experiment"],
-    links: [
-      { label: "Project details", url: "#" },
-      { label: "Paper", url: "#" },
+    title:
+      "TailCue: Exploring Animal-inspired Robotic Tail for Automated Vehicles Interaction",
+    authors: [
+      { name: "Yuan Li", self: true, equal: true },
+      { name: "Xinyue Gui", equal: true },
+      { name: "Ding Xia" },
+      { name: "Mark Colley" },
+      { name: "Takeo Igarashi" },
     ],
-  },
-  {
-    number: "02",
-    title: "Situated Immersive Interaction",
-    eyebrow: "Interactive XR system",
+    venue: "13th International Conference on Human-Agent Interaction (HAI ’25)",
     summary:
-      "A placeholder for an immersive system that explores how people act, make decisions, and collaborate when digital information is situated in the world around them.",
-    image: "/images/project-interaction.svg",
-    imageAlt: "Abstract portals and paths representing situated interaction",
-    year: "2026",
-    tags: ["HCI", "Interaction", "Prototype"],
-    links: [
-      { label: "Project details", url: "#" },
-      { label: "Video", url: "#" },
-    ],
-    reversed: true,
-  },
-  {
-    number: "03",
-    title: "Measuring Human Experience",
-    eyebrow: "Human perception experiment",
-    summary:
-      "A placeholder for empirical work combining behavioral measures and participant experience to understand perception in emerging interactive systems.",
-    image: "/images/project-experience.svg",
-    imageAlt: "Abstract points and waves representing measured human experience",
+      "An exploration of an animal-inspired robotic tail as an external human–machine interface for communicating emotion and intent from automated vehicles.",
+    image: "/images/tailcue.svg",
+    imageAlt: "Illustration of TailCue, a robotic tail interface for an automated vehicle",
     year: "2025",
-    tags: ["User Study", "Behavior", "Methods"],
     links: [
-      { label: "Project details", url: "#" },
-      { label: "Materials", url: "#" },
+      { label: "Project", url: "https://theliyuan.com/TailCue/" },
+      { label: "Paper", url: "https://arxiv.org/pdf/2511.14242.pdf" },
+      { label: "arXiv", url: "https://arxiv.org/abs/2511.14242" },
+      { label: "DOI", url: "https://doi.org/10.1145/3765766.3765767" },
+      {
+        label: "Supplementary",
+        url: "https://github.com/Kulipajun/HAI-2025---Tail-Project",
+      },
     ],
   },
 ];
