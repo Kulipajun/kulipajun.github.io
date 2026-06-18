@@ -1,12 +1,9 @@
 ---
-import Header from "@components/Header.astro";
-import Hero from "@components/Hero.astro";
-import ProjectCard from "@components/ProjectCard.astro";
-import SectionHeading from "@components/SectionHeading.astro";
-import Timeline from "@components/Timeline.astro";
 import {
   education,
   experience,
+  navigation,
+  news,
   profile,
   recognition,
   researchProjects,
@@ -19,125 +16,139 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   title={`${profile.name} — HCI, XR & Perception`}
   description="Yuan Li is an HCI researcher exploring extended reality and human perception."
 >
-  <div id="top" class="page">
-    <Header />
-    <main>
-      <Hero />
+  <header class="site-nav">
+    <a class="site-name" href="#top">{profile.name}</a>
+    <nav aria-label="Main navigation">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </header>
 
-      <section id="research" class="section-shell section-block">
-        <SectionHeading
-          number="01"
-          eyebrow="Selected research"
-          title="Questions made tangible."
-          copy="I use experiments and interactive systems to study how emerging technologies reshape human perception. These projects are placeholders for the first content pass."
-        />
-        <div class="projects">
-          {researchProjects.map((project) => <ProjectCard project={project} />)}
+  <main id="top" class="container">
+    <section class="intro">
+      <img class="portrait" src={profile.portrait} alt={`Portrait of ${profile.name}`} />
+      <div class="intro-copy">
+        <h1>{profile.name}</h1>
+        <p class="role">
+          Technical Assistant at <a href={profile.currentRole.url}>The University of Tokyo</a>
+        </p>
+        <p>
+          I am an HCI researcher interested in <strong>extended reality</strong> and
+          <strong>human perception</strong>. I explore how immersive technologies shape
+          the way people perceive, understand, and interact with digital and physical
+          environments.
+        </p>
+        <p>
+          In <strong>August 2026</strong>, I will join
+          <a href={profile.nextRole.institutionUrl}>Aarhus University</a> as a PhD
+          student under the supervision of <strong>{profile.nextRole.supervisor}</strong>.
+        </p>
+        <div class="profile-links">
+          {profile.links.map((link) => <a href={link.url}>{link.label}</a>)}
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="about" class="about-section section-block">
-        <div class="section-shell about-grid">
-          <SectionHeading
-            number="02"
-            eyebrow="About"
-            title="Between perception and possibility."
-          />
-          <div class="about-copy" data-reveal>
-            <p class="about-lead">
-              My work sits at the intersection of
-              <em>human–computer interaction</em>,
-              <em>extended reality</em>, and
-              <em>perception</em>.
-            </p>
-            <p>
-              I am interested in how computational systems alter what people notice,
-              feel, and believe about the environments around them—and how these
-              insights can guide the design of more legible and humane interactions.
-            </p>
-            <div class="discipline-list">
-              {profile.disciplines.map((discipline, index) => (
-                <span><sup>0{index + 1}</sup>{discipline}</span>
-              ))}
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        {news.map((item) => (
+          <li><time>{item.year}</time><span>{item.text}</span></li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="research">
+      <h2>Selected Research</h2>
+      <p class="section-note">
+        Placeholder projects for the first content pass. Images, titles, and links can
+        be replaced in <code>src/data/site.ts</code>.
+      </p>
+      <div class="research-list">
+        {researchProjects.map((project) => (
+          <article class="research-item">
+            <img src={project.image} alt={project.imageAlt} loading="lazy" />
+            <div>
+              <h3>{project.title}</h3>
+              <p class="meta">{project.eyebrow} · {project.year}</p>
+              <p>{project.summary}</p>
+              <p class="item-links">
+                {project.links.map((link) => <a href={link.url}>{link.label}</a>)}
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
+          </article>
+        ))}
+      </div>
+    </section>
 
-      <section id="experience" class="section-shell section-block">
-        <SectionHeading
-          number="03"
-          eyebrow="Experience"
-          title="A path through research and practice."
-        />
-        <div class="timeline-grid">
-          <Timeline title="Education" entries={education} />
-          <Timeline title="Research & industry" entries={experience} />
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="subsection">
+        <h3>Education</h3>
+        <div class="entry-list">
+          {education.map((item) => (
+            <article class="entry">
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.institution}</p>
+                <p class="detail">{item.detail}</p>
+              </div>
+              <time>{item.period}</time>
+            </article>
+          ))}
         </div>
-      </section>
+      </div>
 
-      <section class="recognition-section section-block">
-        <div class="section-shell">
-          <SectionHeading
-            number="04"
-            eyebrow="Recognition"
-            title="Funding, scholarships & service."
-          />
-          <div class="recognition-grid" data-reveal>
-            <div class="recognition-list">
-              {recognition.map((item) => (
-                <article>
-                  <span class="recognition-year">{item.year}</span>
-                  <div>
-                    <p>{item.title}</p>
-                    <span>{item.institution}</span>
-                  </div>
-                  <span class="recognition-type">{item.type}</span>
-                </article>
-              ))}
-            </div>
-            <aside class="service-card">
-              <p class="eyebrow">Academic service</p>
-              {service.map((item) => (
-                <div>
-                  <span>{item.year}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.institution}</p>
-                </div>
-              ))}
-            </aside>
-          </div>
+      <div class="subsection">
+        <h3>Research & Industry</h3>
+        <div class="entry-list">
+          {experience.map((item) => (
+            <article class="entry">
+              <div>
+                <h4>{item.title}</h4>
+                <p>{item.institution}</p>
+                {item.detail && <p class="detail">{item.detail}</p>}
+              </div>
+              <time>{item.period}</time>
+            </article>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="contact" class="contact-section">
-        <div class="section-shell contact-grid" data-reveal>
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2>Let’s think beyond the frame.</h2>
-          </div>
-          <div class="contact-copy">
-            <p>
-              I am always happy to talk about HCI, XR, perception, or a promising
-              research question.
-            </p>
-            <a class="contact-email" href={`mailto:${profile.email}`}>
-              {profile.email} <span>↗</span>
-            </a>
-            <div class="contact-links">
-              {profile.links.map((link) => (
-                <a href={link.url}>{link.label}</a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <section id="awards">
+      <h2>Awards & Funding</h2>
+      <ul class="simple-list">
+        {recognition.map((item) => (
+          <li>
+            <span><strong>{item.title}</strong>, {item.institution}</span>
+            <time>{item.year}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
 
-    <footer class="site-footer section-shell">
-      <p>© {new Date().getFullYear()} {profile.name}</p>
-      <p>HCI · XR · Perception</p>
-      <a href="#top">Back to top ↑</a>
-    </footer>
-  </div>
+    <section>
+      <h2>Academic Service</h2>
+      <ul class="simple-list">
+        {service.map((item) => (
+          <li>
+            <span><strong>{item.title}</strong>, {item.institution}</span>
+            <time>{item.year}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href={`mailto:${profile.email}`}>{profile.email}</a><br />
+        Location: {profile.location}
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© {new Date().getFullYear()} {profile.name}</p>
+  </footer>
 </BaseLayout>

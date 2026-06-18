@@ -32,10 +32,26 @@ export const profile = {
 };
 
 export const navigation = [
+  { label: "News", href: "#news" },
   { label: "Research", href: "#research" },
-  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
+  { label: "Awards", href: "#awards" },
   { label: "Contact", href: "#contact" },
+];
+
+export const news = [
+  {
+    year: "2026",
+    text: "I will join Aarhus University as a PhD student in August 2026.",
+  },
+  {
+    year: "2024",
+    text: "Joined the Igarashi Group at the University of Tokyo as a Technical Assistant.",
+  },
+  {
+    year: "2024",
+    text: "Served as a Student Volunteer at SIGGRAPH Asia 2024 in Tokyo.",
+  },
 ];
 
 export type ResearchProject = {
