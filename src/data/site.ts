@@ -13,7 +13,7 @@ export const profile = {
   headline: "Designing extended realities through the lens of human perception.",
   introduction:
     [
-  'Hi! I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision Prof. <strong>Takeo Igarashi</strong> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human–machine interfaces (eHMIs) and automated vehicles.',
+  'Hi! I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision Prof. <strong>Takeo Igarashi</strong> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human–machine interfaces (eHMIs) and human–vehicle interaction.',
   'Before joining <strong>the University of Tokyo</strong>, I received my Master’s degree from <strong>Keio University</strong>, where I was supervised by Prof. <strong>Kazunori Takashio</strong> and Prof. <strong>Yuki Ban</strong> at <strong>UTokyo</strong>. My Master’s research explored how VR interfaces influence human perception and user experience.',
   'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of Prof. <strong>Tobias Langlotz</strong>. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.',
     ],
