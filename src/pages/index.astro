@@ -1,0 +1,143 @@
+---
+import Header from "@components/Header.astro";
+import Hero from "@components/Hero.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import Timeline from "@components/Timeline.astro";
+import {
+  education,
+  experience,
+  profile,
+  recognition,
+  researchProjects,
+  service,
+} from "@data/site";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`${profile.name} — HCI, XR & Perception`}
+  description="Yuan Li is an HCI researcher exploring extended reality and human perception."
+>
+  <div id="top" class="page">
+    <Header />
+    <main>
+      <Hero />
+
+      <section id="research" class="section-shell section-block">
+        <SectionHeading
+          number="01"
+          eyebrow="Selected research"
+          title="Questions made tangible."
+          copy="I use experiments and interactive systems to study how emerging technologies reshape human perception. These projects are placeholders for the first content pass."
+        />
+        <div class="projects">
+          {researchProjects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+
+      <section id="about" class="about-section section-block">
+        <div class="section-shell about-grid">
+          <SectionHeading
+            number="02"
+            eyebrow="About"
+            title="Between perception and possibility."
+          />
+          <div class="about-copy" data-reveal>
+            <p class="about-lead">
+              My work sits at the intersection of
+              <em>human–computer interaction</em>,
+              <em>extended reality</em>, and
+              <em>perception</em>.
+            </p>
+            <p>
+              I am interested in how computational systems alter what people notice,
+              feel, and believe about the environments around them—and how these
+              insights can guide the design of more legible and humane interactions.
+            </p>
+            <div class="discipline-list">
+              {profile.disciplines.map((discipline, index) => (
+                <span><sup>0{index + 1}</sup>{discipline}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section-shell section-block">
+        <SectionHeading
+          number="03"
+          eyebrow="Experience"
+          title="A path through research and practice."
+        />
+        <div class="timeline-grid">
+          <Timeline title="Education" entries={education} />
+          <Timeline title="Research & industry" entries={experience} />
+        </div>
+      </section>
+
+      <section class="recognition-section section-block">
+        <div class="section-shell">
+          <SectionHeading
+            number="04"
+            eyebrow="Recognition"
+            title="Funding, scholarships & service."
+          />
+          <div class="recognition-grid" data-reveal>
+            <div class="recognition-list">
+              {recognition.map((item) => (
+                <article>
+                  <span class="recognition-year">{item.year}</span>
+                  <div>
+                    <p>{item.title}</p>
+                    <span>{item.institution}</span>
+                  </div>
+                  <span class="recognition-type">{item.type}</span>
+                </article>
+              ))}
+            </div>
+            <aside class="service-card">
+              <p class="eyebrow">Academic service</p>
+              {service.map((item) => (
+                <div>
+                  <span>{item.year}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.institution}</p>
+                </div>
+              ))}
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="section-shell contact-grid" data-reveal>
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s think beyond the frame.</h2>
+          </div>
+          <div class="contact-copy">
+            <p>
+              I am always happy to talk about HCI, XR, perception, or a promising
+              research question.
+            </p>
+            <a class="contact-email" href={`mailto:${profile.email}`}>
+              {profile.email} <span>↗</span>
+            </a>
+            <div class="contact-links">
+              {profile.links.map((link) => (
+                <a href={link.url}>{link.label}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <p>© {new Date().getFullYear()} {profile.name}</p>
+      <p>HCI · XR · Perception</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </div>
+</BaseLayout>

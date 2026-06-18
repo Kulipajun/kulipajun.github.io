@@ -1,7 +1,0 @@
-subject: Languages
-listing-order: 5
-icon: "/assets/img/globe.svg"
-contents:
-  - title: "Chinese ('*Native*'): <span style='color: goldenrod; margin: auto 8px; font-family: cursive;'>●●●●●</span>"
-  - title: "English ('*Advanced*'): <span style='color: indianred; margin: auto 8px; font-family: cursive;'>●●●◐○</span>"
-  - title: "Japanese ('Intermediate'): <span style='color: cornflowerblue; margin: auto 8px; font-family: cursive;'>●●◐○○</span>"
