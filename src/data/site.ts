@@ -7,16 +7,16 @@ export const profile = {
   name: "Yuan Li",
   shortName: "YL",
   email: "liyuan@keio.jp",
-  location: "Tokyo, Japan → Aarhus, Denmark",
+  location: "Tokyo, Japan",
   portrait: "/images/yuan-li.jpg",
   disciplines: ["Human–Computer Interaction", "Extended Reality", "Perception"],
   headline: "Designing extended realities through the lens of human perception.",
   introduction:
-    "I explore how immersive technologies shape the way people perceive, understand, and interact with digital and physical worlds.",
+    "I am a Human-Computer Interaction researcher currently working as a Technical Assistant in Prof. Takeo Igarashi’s group at the University of Tokyo, major focuses on external human–machine interfaces (eHMIs) and automated vehicles. Before joining that, I received my Master’s degree from Keio University, where I conducted research through a collaborative framework between Keio University and the University of Tokyo. I was supervised by Prof. Kazunori Takashio at Keio University and Prof. Yuki Ban at the University of Tokyo. My Master’s research explored how VR interfaces influence human perception and user experience. Starting in August 2026, I will join Aarhus University as a PhD student under the supervision of Prof. Tobias Langlotz. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.",
   currentRole: {
     title: "Technical Assistant",
     institution: "The University of Tokyo",
-    url: "https://www.u-tokyo.ac.jp/en/",
+    url: "https://www-ui.is.s.u-tokyo.ac.jp/",
   },
   nextRole: {
     title: "PhD Student",
@@ -28,6 +28,7 @@ export const profile = {
   links: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/yuanli3284" },
     { label: "Email", url: "mailto:liyuan@keio.jp" },
+    { label: "Google Scholar", url: "https://scholar.google.com/citations?user=zUBrOJgAAAAJ&hl=en"}
   ],
 };
 
@@ -36,7 +37,6 @@ export const navigation = [
   { label: "Research", href: "#research" },
   { label: "Experience", href: "#experience" },
   { label: "Awards", href: "#awards" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export const news = [
@@ -44,37 +44,71 @@ export const news = [
     year: "2026",
     text: "I will join Aarhus University as a PhD student in August 2026.",
   },
-  {
-    year: "2024",
-    text: "Joined the Igarashi Group at the University of Tokyo as a Technical Assistant.",
-  },
-  {
-    year: "2024",
-    text: "Served as a Student Volunteer at SIGGRAPH Asia 2024 in Tokyo.",
-  },
 ];
 
 export type Publication = {
   title: string;
-  authors: { name: string; self?: boolean; equal?: boolean }[];
+  authors: { name: string; url?: string; self?: boolean; equal?: boolean }[];
   venue: string;
   summary: string;
   image: string;
   imageAlt: string;
   year: string;
+  award?: string;
   links: { label: string; url: string }[];
 };
 
 export const publications: Publication[] = [
   {
     title:
+      "Peeking Ahead of the Field Study: Exploring VLM Personas as Support Tools for Embodied Studies in HCI",
+    authors: [
+      { name: "Xinyue Gui", url: "https://xinyuegui.github.io/" },
+      { name: "Ding Xia", url: "https://apisxia.github.io/" },
+      { name: "Mark Colley", url: "https://profiles.ucl.ac.uk/102233-mark-colley" },
+      { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+      { name: "Vishal Chauhan" },
+      { name: "Anubhav Anubhav" },
+      { name: "Zhongyi Zhou", url: "https://zhongyizhou.net/" },
+      {
+        name: "Ehsan Javanmardi",
+        url: "https://tlab.hongo.wide.ad.jp/People/ehsan-javanmardi/",
+      },
+      { name: "Stela Hanbyeol Seo", url: "https://stelaseo.ca/" },
+      { name: "Chia-Ming Chang", url: "https://chiamingchang.com/" },
+      {
+        name: "Manabu Tsukada",
+        url: "https://tlab.hongo.wide.ad.jp/People/manabu-tsukada/",
+      },
+      {
+        name: "Takeo Igarashi",
+        url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/",
+      },
+    ],
+    venue: "ACM CHI Conference on Human Factors in Computing Systems (CHI ’26)",
+    summary:
+      "We investigate Vision-Language Model personas as low-cost proxy participants for previewing embodied field studies before running them with real people.",
+    image: "/images/peeking-ahead.webp",
+    imageAlt: "Peeking Ahead research team with an experimental automated vehicle",
+    year: "2026",
+    award: "Honorable Mention Award",
+    links: [
+      { label: "Project", url: "https://apisxia.github.io/PersonaVLM/" },
+      { label: "DOI", url: "https://doi.org/10.1145/3772318.3790537" },
+    ],
+  },
+  {
+    title:
       "TailCue: Exploring Animal-inspired Robotic Tail for Automated Vehicles Interaction",
     authors: [
-      { name: "Yuan Li", self: true, equal: true },
-      { name: "Xinyue Gui", equal: true },
-      { name: "Ding Xia" },
-      { name: "Mark Colley" },
-      { name: "Takeo Igarashi" },
+      { name: "Yuan Li", url: "https://theliyuan.com/", self: true, equal: true },
+      { name: "Xinyue Gui", url: "https://xinyuegui.github.io/", equal: true },
+      { name: "Ding Xia", url: "https://apisxia.github.io/" },
+      { name: "Mark Colley", url: "https://m-colley.github.io/" },
+      {
+        name: "Takeo Igarashi",
+        url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index.html",
+      },
     ],
     venue: "13th International Conference on Human-Agent Interaction (HAI ’25)",
     summary:
@@ -85,6 +119,27 @@ export const publications: Publication[] = [
     links: [
       { label: "Project", url: "https://theliyuan.com/TailCue/" },
       { label: "DOI", url: "https://doi.org/10.1145/3765766.3765767" },
+    ],
+  },
+  {
+    title:
+      "Mitigating Latency Effects on Subjective Experience in Robot Teleoperation Using a VR-Enabled Virtual Spring",
+    authors: [
+      { name: "Du Jin" },
+      { name: "Rui Zhang" },
+      { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+      { name: "Yuki Ban", url: "https://yukib.github.io/" },
+      { name: "Shin’Ichi Warisawa" },
+    ],
+    venue:
+      "IEEE International Symposium on Mixed and Augmented Reality (ISMAR ’24)",
+    summary:
+      "A VR teleoperation technique that represents latency-induced position discrepancy as the dynamics of a virtual spring, improving user comfort and sense of presence.",
+    image: "/images/virtual-spring.webp",
+    imageAlt: "A virtual spring connecting a VR controller to a teleoperated robot",
+    year: "2024",
+    links: [
+      { label: "DOI", url: "https://doi.org/10.1109/ISMAR62088.2024.00144" },
     ],
   },
 ];
@@ -101,19 +156,19 @@ export const education = [
     period: "2023 — 2025",
     title: "Master of Media and Governance",
     institution: "Keio University",
-    detail: "Graduate School of Media and Governance · Sociable Robots Lab",
+    detail: "Graduate School of Media and Governance · Sociable Robots Lab · Supervisor: Kazunori Takashio",
   },
   {
     period: "2023 — 2024",
     title: "Special Auditor Student",
     institution: "The University of Tokyo",
-    detail: "Graduate School of Frontier Sciences · Human & Environment Informatics Lab",
+    detail: "Graduate School of Frontier Sciences · Human & Environment Informatics Lab · Supervisor: Yuki Ban",
   },
   {
     period: "2018 — 2022",
     title: "Bachelor of Engineering",
     institution: "Jiangsu University of Science and Technology",
-    detail: "Computer Science · GPA 3.29",
+    detail: "Computer Science",
   },
 ];
 
@@ -122,7 +177,7 @@ export const experience = [
     period: "Dec. 2024 — present",
     title: "Technical Assistant",
     institution: "The University of Tokyo",
-    detail: "Graduate School of Information Science and Technology · Igarashi Group · eHMI Project",
+    detail: "Graduate School of Information Science and Technology · Supervisor: Takeo Igarashi",
   },
   {
     period: "Sep. 2023 — Aug. 2024",
@@ -147,9 +202,9 @@ export const experience = [
 export const recognition = [
   {
     year: "2025",
-    title: "Spring GX International Graduate Program of Innovation for Intelligent World",
+    title: "Spring GX Program of Innovation for Intelligent World",
     institution: "The University of Tokyo",
-    type: "Program",
+    type: "Funding",
   },
   { year: "2024", title: "Mori Taikichiro Memorial Research Fund", institution: "Keio University", type: "Funding" },
   { year: "2024", title: "SFC Academic Society Research Grant", institution: "Keio University", type: "Funding" },

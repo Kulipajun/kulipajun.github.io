@@ -66,13 +66,26 @@ import BaseLayout from "@layouts/BaseLayout.astro";
               <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
             </a>
             <div>
-              <h3>
-                <a href={publication.links[0].url}>{publication.title}</a>
-              </h3>
+              <div class="publication-heading">
+                <h3>
+                  <a href={publication.links[0].url}>{publication.title}</a>
+                </h3>
+                {publication.award && (
+                  <span class="award-badge" title={publication.award}>
+                    <span aria-hidden="true">★</span> {publication.award}
+                  </span>
+                )}
+              </div>
               <p class="authors">
                 {publication.authors.map((author, index) => (
                   <>
-                    {author.self ? <strong>{author.name}</strong> : author.name}
+                    {author.url ? (
+                      <a href={author.url}>
+                        {author.self ? <strong>{author.name}</strong> : author.name}
+                      </a>
+                    ) : (
+                      author.self ? <strong>{author.name}</strong> : author.name
+                    )}
                     {author.equal && <sup>*</sup>}
                     {index < publication.authors.length - 1 ? ", " : ""}
                   </>
@@ -83,7 +96,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
               <p class="item-links">
                 {publication.links.map((link) => <a href={link.url}>{link.label}</a>)}
               </p>
-              <p class="equal-note"><sup>*</sup> Equal contribution</p>
+              {publication.authors.some((author) => author.equal) && (
+                <p class="equal-note"><sup>*</sup> Equal contribution</p>
+              )}
             </div>
           </article>
         ))}
