@@ -14,7 +14,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 <BaseLayout
   title={`${profile.name} — HCI, XR & Perception`}
-  description="Yuan Li is an HCI researcher exploring extended reality and human perception."
+  description={profile.introduction}
 >
   <header class="site-nav">
     <a class="site-name" href="#top">{profile.name}</a>
@@ -28,20 +28,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <img class="portrait" src={profile.portrait} alt={`Portrait of ${profile.name}`} />
       <div class="intro-copy">
         <h1>{profile.name}</h1>
+
         <p class="role">
-          Technical Assistant at <a href={profile.currentRole.url}>The University of Tokyo</a>
+          {profile.currentRole.title} at{" "}
+          <a href={profile.currentRole.url}>{profile.currentRole.institution}</a>
         </p>
-        <p>
-          I am an HCI researcher interested in <strong>extended reality</strong> and
-          <strong>human perception</strong>. I explore how immersive technologies shape
-          the way people perceive, understand, and interact with digital and physical
-          environments.
-        </p>
-        <p>
-          In <strong>August 2026</strong>, I will join
-          <a href={profile.nextRole.institutionUrl}>Aarhus University</a> as a PhD
-          student under the supervision of <strong>{profile.nextRole.supervisor}</strong>.
-        </p>
+
+        {profile.introduction.map((paragraph) => (
+  <p set:html={paragraph} />
+))}
+
         <div class="profile-links">
           {profile.links.map((link) => <a href={link.url}>{link.label}</a>)}
         </div>
@@ -52,7 +48,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <h2>News</h2>
       <ul class="news-list">
         {news.map((item) => (
-          <li><time>{item.year}</time><span>{item.text}</span></li>
+          <li>
+            <time>{item.year}</time>
+            <span>{item.text}</span>
+          </li>
         ))}
       </ul>
     </section>
@@ -65,17 +64,20 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             <a href={publication.links[0].url} aria-label={`Open ${publication.title}`}>
               <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
             </a>
+
             <div>
               <div class="publication-heading">
                 <h3>
                   <a href={publication.links[0].url}>{publication.title}</a>
                 </h3>
+
                 {publication.award && (
                   <span class="award-badge" title={publication.award}>
                     <span aria-hidden="true">★</span> {publication.award}
                   </span>
                 )}
               </div>
+
               <p class="authors">
                 {publication.authors.map((author, index) => (
                   <>
@@ -83,21 +85,32 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                       <a href={author.url}>
                         {author.self ? <strong>{author.name}</strong> : author.name}
                       </a>
+                    ) : author.self ? (
+                      <strong>{author.name}</strong>
                     ) : (
-                      author.self ? <strong>{author.name}</strong> : author.name
+                      author.name
                     )}
+
                     {author.equal && <sup>*</sup>}
                     {index < publication.authors.length - 1 ? ", " : ""}
                   </>
                 ))}
               </p>
-              <p class="meta"><em>{publication.venue}</em>, {publication.year}</p>
+
+              <p class="meta">
+                <em>{publication.venue}</em>, {publication.year}
+              </p>
+
               <p>{publication.summary}</p>
+
               <p class="item-links">
                 {publication.links.map((link) => <a href={link.url}>{link.label}</a>)}
               </p>
+
               {publication.authors.some((author) => author.equal) && (
-                <p class="equal-note"><sup>*</sup> Equal contribution</p>
+                <p class="equal-note">
+                  <sup>*</sup> Equal contribution
+                </p>
               )}
             </div>
           </article>
@@ -107,6 +120,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     <section id="experience">
       <h2>Experience</h2>
+
       <div class="subsection">
         <h3>Education</h3>
         <div class="entry-list">
@@ -141,11 +155,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </section>
 
     <section id="awards">
-      <h2>Awards & Funding</h2>
+      <h2>Scholarships & Funding</h2>
       <ul class="simple-list">
         {recognition.map((item) => (
           <li>
-            <span><strong>{item.title}</strong>, {item.institution}</span>
+            <span>
+              <strong>{item.title}</strong>, {item.institution}
+            </span>
             <time>{item.year}</time>
           </li>
         ))}
@@ -157,19 +173,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <ul class="simple-list">
         {service.map((item) => (
           <li>
-            <span><strong>{item.title}</strong>, {item.institution}</span>
+            <span>
+              <strong>{item.title}</strong>, {item.institution}
+            </span>
             <time>{item.year}</time>
           </li>
         ))}
       </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href={`mailto:${profile.email}`}>{profile.email}</a><br />
-        Location: {profile.location}
-      </p>
     </section>
   </main>
 

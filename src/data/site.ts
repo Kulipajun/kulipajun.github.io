@@ -12,7 +12,11 @@ export const profile = {
   disciplines: ["Human–Computer Interaction", "Extended Reality", "Perception"],
   headline: "Designing extended realities through the lens of human perception.",
   introduction:
-    "I am a Human-Computer Interaction researcher currently working as a Technical Assistant in Prof. Takeo Igarashi’s group at the University of Tokyo, major focuses on external human–machine interfaces (eHMIs) and automated vehicles. Before joining that, I received my Master’s degree from Keio University, where I was supervised by Prof. Kazunori Takashio and Prof. Yuki Ban (UTokyo). My Master’s research explored how VR interfaces influence human perception and user experience. Starting in August 2026, I will join Aarhus University as a PhD student under the supervision of Prof. Tobias Langlotz. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.",
+    [
+  'I am a Human-Computer Interaction researcher currently working as a Technical Assistant in Prof. <strong>Takeo Igarashi</strong>’s group at <strong>the University of Tokyo</strong>, where my research focuses on external human–machine interfaces (eHMIs) and automated vehicles.',
+  'Before joining <strong>the University of Tokyo</strong>, I received my Master’s degree from <strong>Keio University</strong>, where I was supervised by Prof. <strong>Kazunori Takashio</strong> and Prof. <strong>Yuki Ban</strong> at <strong>the University of Tokyo</strong>. My Master’s research explored how VR interfaces influence human perception and user experience.',
+  'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of Prof. <strong>Tobias Langlotz</strong>. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.',
+    ],
   currentRole: {
     title: "Technical Assistant",
     institution: "The University of Tokyo",
