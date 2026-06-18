@@ -79,18 +79,12 @@ export const publications: Publication[] = [
     venue: "13th International Conference on Human-Agent Interaction (HAI ’25)",
     summary:
       "An exploration of an animal-inspired robotic tail as an external human–machine interface for communicating emotion and intent from automated vehicles.",
-    image: "/images/tailcue.svg",
-    imageAlt: "Illustration of TailCue, a robotic tail interface for an automated vehicle",
+    image: "/images/tailcue.webp",
+    imageAlt: "TailCue robotic tail mounted on an automated vehicle",
     year: "2025",
     links: [
       { label: "Project", url: "https://theliyuan.com/TailCue/" },
-      { label: "Paper", url: "https://arxiv.org/pdf/2511.14242.pdf" },
-      { label: "arXiv", url: "https://arxiv.org/abs/2511.14242" },
       { label: "DOI", url: "https://doi.org/10.1145/3765766.3765767" },
-      {
-        label: "Supplementary",
-        url: "https://github.com/Kulipajun/HAI-2025---Tail-Project",
-      },
     ],
   },
 ];
@@ -151,6 +145,12 @@ export const experience = [
 ];
 
 export const recognition = [
+  {
+    year: "2025",
+    title: "Spring GX International Graduate Program of Innovation for Intelligent World",
+    institution: "The University of Tokyo",
+    type: "Program",
+  },
   { year: "2024", title: "Mori Taikichiro Memorial Research Fund", institution: "Keio University", type: "Funding" },
   { year: "2024", title: "SFC Academic Society Research Grant", institution: "Keio University", type: "Funding" },
   { year: "2024", title: "Yamaoka Kenichi Memorial Scholarship", institution: "Keio University", type: "Scholarship" },
@@ -160,6 +160,16 @@ export const recognition = [
 ];
 
 export const service = [
+  {
+    year: "2026",
+    title: "Reviewer",
+    institution: "ACM CHI 2026",
+  },
+  {
+    year: "2026",
+    title: "Reviewer",
+    institution: "International Journal of Human–Computer Studies (IJHCS)",
+  },
   {
     year: "2024",
     title: "Student Volunteer",
