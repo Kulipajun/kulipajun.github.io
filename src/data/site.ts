@@ -232,14 +232,16 @@ export const service = [
   {
     year: "2026",
     title: "Reviewer",
-    institution: "International Journal of Human鈥揅omputer Studies (IJHCS)",
+    institution: "International Journal of Human-Computer Studies (IJHCS)",
   },
   {
     year: "2024",
     title: "Student Volunteer",
-    institution: "SIGGRAPH Asia 2024 · Tokyo, Japan",
+    institution: "SIGGRAPH Asia 2024",
   },
 ];
+
+
 
 
 
