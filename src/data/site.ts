@@ -10,12 +10,12 @@ export const profile = {
   location: "Tokyo, Japan",
   portrait: "/images/yuan-li.jpg",
   disciplines: ["Human-Computer Interaction", "Extended Reality", "Perception"],
-  headline: "Designing extended realities through the lens of human perception.",
+  headline: "I study how people perceive and interact with intelligent systems across physical and extended realities.",
   introduction:
     [
-    'Hi! I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision of <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html"><strong>Takeo Igarashi</strong></a> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human-machine interfaces (eHMIs) and human-vehicle interaction.',
-    'Before that, I received my Master&apos;s degree from <strong>Keio University</strong>, where I was supervised by <a href="https://www.keio.ac.jp/en/faculty/k_100012605/"><strong>Kazunori Takashio</strong></a>, with additional supervision from <a href="https://yukib.github.io/"><strong>Yuki Ban</strong></a> at <strong>UTokyo</strong>. My Master&apos;s research explored how VR interfaces influence human perception and user experience.',
-    'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of <a href="https://cs.au.dk/~langlotz/"><strong>Tobias Langlotz</strong></a>. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.',
+    'I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision of <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html"><strong>Takeo Igarashi</strong></a> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human-machine interfaces (eHMIs) and human-vehicle interaction.',
+    'Before that, I received my Master&apos;s degree from <strong>Keio University</strong>, supervised by <a href="https://www.keio.ac.jp/en/faculty/k_100012605/"><strong>Kazunori Takashio</strong></a>, with additional supervision from <a href="https://yukib.github.io/"><strong>Yuki Ban</strong></a> at <strong>UTokyo</strong>. My Master&apos;s research explored how VR interfaces influence human perception and user experience.',
+    'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of <a href="https://cs.au.dk/~langlotz/"><strong>Tobias Langlotz</strong></a>, focusing on calm technology and perception-driven XR interfaces.',
     ],
   currentRole: {
     title: "Technical Assistant",
@@ -39,6 +39,7 @@ export const profile = {
 export const navigation = [
   { label: "News", href: "#news" },
   { label: "Research", href: "#research" },
+  { label: "Education", href: "#education" },
   { label: "Experience", href: "#experience" },
   { label: "Awards", href: "#awards" },
 ];
@@ -159,20 +160,17 @@ export const education = [
   {
     period: "2023 - 2025",
     title: "Master of Media and Governance",
-    institution: "Keio University",
-    detail: "Graduate School of Media and Governance · Sociable Robots Lab · Supervisor: Kazunori Takashio",
-  },
-  {
-    period: "2023 - 2024",
-    title: "Special Auditor Student",
-    institution: "The University of Tokyo",
-    detail: "Graduate School of Frontier Sciences · Human & Environment Informatics Lab · Supervisor: Yuki Ban",
+    institution: "Keio University · The University of Tokyo Joint Graduate Program",
+    detail: "Graduate School of Media and Governance, Keio · Supervisor: Kazunori Takashio",
+    details: [
+      "Graduate School of Frontier Sciences, UTokyo · Supervisor: Yuki Ban",
+    ],
   },
   {
     period: "2018 - 2022",
     title: "Bachelor of Engineering",
     institution: "Jiangsu University of Science and Technology",
-    detail: "Computer Science",
+    detail: "School of Computer Science",
   },
 ];
 
@@ -240,6 +238,20 @@ export const service = [
     institution: "SIGGRAPH Asia 2024",
   },
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

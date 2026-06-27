@@ -1,12 +1,10 @@
-# Yuan Li — Academic Website
+﻿# Yuan Li Academic Website
 
-A lightweight academic website built with Astro. The design uses an editorial
-layout, an Aarhus University-inspired blue palette, and data-first content files
-that are easy to maintain.
+A lightweight academic website built with Astro. The design is intentionally quiet: simple typography, Aarhus University-inspired blue accents, selected publication images, and data-first content that is easy to maintain.
 
-## The one file you will edit most
+## Edit content
 
-All personal content lives in:
+Most personal content lives in:
 
 ```text
 src/data/site.ts
@@ -14,27 +12,32 @@ src/data/site.ts
 
 Update that file to change:
 
-- name, email, research statement, and affiliations;
-- navigation and external links;
-- selected research projects;
+- profile text, email, affiliations, and external links;
+- navigation labels;
+- selected publications;
 - education and experience;
-- funding, scholarships, and academic service.
+- awards, funding, and academic service.
 
-Project images live in `public/images/`. Replace a placeholder image while
-keeping the same filename, or update its path in `src/data/site.ts`.
+Images live in:
+
+```text
+public/images/
+```
+
+Use landscape images for publications, preferably around 16:10.
 
 ## Project structure
 
 ```text
 src/
-├── components/       Reusable sections and content patterns
-├── data/site.ts      Personal content and project data
-├── layouts/          HTML shell, metadata, and shared behavior
-├── pages/            Website routes
-└── styles/global.css Design tokens and responsive styles
+├── data/site.ts          Personal content
+├── layouts/              Base HTML shell and metadata
+├── pages/                Website routes
+└── styles/global.css     Design tokens and responsive styles
 public/
-├── images/           Portrait and research images
-└── CNAME             Custom domain
+├── images/               Portrait and publication images
+├── favicon.svg
+└── CNAME                 Custom domain for GitHub Pages
 ```
 
 ## Local development
@@ -56,24 +59,6 @@ pnpm build
 
 ## Deployment
 
-The workflow in `.github/workflows/deploy.yml` builds and publishes the site to
-GitHub Pages when changes are pushed to `master`.
+The workflow in `.github/workflows/deploy.yml` builds the Astro site and publishes `dist/` to GitHub Pages. In the repository settings, choose GitHub Actions as the Pages source.
 
-In the repository settings, choose **GitHub Actions** as the Pages source. The
-custom domain remains `theliyuan.com`.
-
-## Replacing placeholder research
-
-Each item in `researchProjects` includes:
-
-```ts
-{
-  title: "Project title",
-  summary: "Short research story",
-  image: "/images/project-image.jpg",
-  tags: ["HCI", "XR"],
-  links: [{ label: "Paper", url: "https://..." }]
-}
-```
-
-Use a concise title, a two- or three-sentence summary, and a landscape image.
+The custom domain is `theliyuan.com` and is preserved through `public/CNAME`.

@@ -13,7 +13,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title={`${profile.name} —HCI, XR & Perception`}
+  title={`${profile.name} — HCI, XR & Perception`}
   description="Yuan Li is an HCI researcher"
 >
   <header class="site-nav">
@@ -118,55 +118,54 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       </div>
     </section>
 
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry-list">
+        {education.map((item) => (
+          <article class="entry">
+            <div>
+              <h4>{item.title}</h4>
+              <p class="affiliation">{item.institution}</p>
+              {item.detail && <p class="detail">{item.detail}</p>}
+              {"details" in item && item.details && item.details.map((detail) => (
+                <p class="detail">{detail}</p>
+              ))}
+            </div>
+            <time>{item.period}</time>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section id="experience">
       <h2>Experience</h2>
-
-      <div class="subsection">
-        <h3>Education</h3>
-        <div class="entry-list">
-          {education.map((item) => (
-            <article class="entry">
-              <div>
-                <h4>{item.title}</h4>
-                <p>{item.institution}</p>
-                <p class="detail">{item.detail}</p>
-              </div>
-              <time>{item.period}</time>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div class="subsection">
-        <h3>Research & Industry</h3>
-        <div class="entry-list">
-          {experience.map((item) => (
-            <article class="entry">
-              <div>
-                <h4>{item.title}</h4>
-                <p>{item.institution}</p>
-                {item.detail && <p class="detail">{item.detail}</p>}
-                {"collaborators" in item && item.collaborators && (
-                  <p class="detail collaborators">
-                    Main collaborators:{" "}
-                    {item.collaborators.map((person, index) => (
-                      <>
-                        <a href={person.url}>{person.name}</a>
-                        {index < item.collaborators.length - 1 && ", "}
-                      </>
-                    ))}
-                  </p>
-                )}
-              </div>
-              <time>{item.period}</time>
-            </article>
-          ))}
-        </div>
+      <div class="entry-list">
+        {experience.map((item) => (
+          <article class="entry">
+            <div>
+              <h4>{item.title}</h4>
+              <p class="affiliation">{item.institution}</p>
+              {item.detail && <p class="detail">{item.detail}</p>}
+              {"collaborators" in item && item.collaborators && (
+                <p class="detail collaborators">
+                  Main collaborators:{" "}
+                  {item.collaborators.map((person, index) => (
+                    <>
+                      <a href={person.url}>{person.name}</a>
+                      {index < item.collaborators.length - 1 && ", "}
+                    </>
+                  ))}
+                </p>
+              )}
+            </div>
+            <time>{item.period}</time>
+          </article>
+        ))}
       </div>
     </section>
 
     <section id="awards">
-      <h2>Scholarships & Funding</h2>
+      <h2>Awards & Funding</h2>
       <ul class="simple-list">
         {recognition.map((item) => (
           <li>
@@ -198,5 +197,22 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <p>© {new Date().getFullYear()} {profile.name}</p>
   </footer>
 </BaseLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
