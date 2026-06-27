@@ -1,4 +1,4 @@
----
+﻿---
 import {
   education,
   experience,
@@ -13,7 +13,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title={`${profile.name} — HCI, XR & Perception`}
+  title={`${profile.name} —HCI, XR & Perception`}
   description="Yuan Li is an HCI researcher"
 >
   <header class="site-nav">
@@ -146,6 +146,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                 <h4>{item.title}</h4>
                 <p>{item.institution}</p>
                 {item.detail && <p class="detail">{item.detail}</p>}
+                {"collaborators" in item && item.collaborators && (
+                  <p class="detail collaborators">
+                    Main collaborators:{" "}
+                    {item.collaborators.map((person, index) => (
+                      <>
+                        <a href={person.url}>{person.name}</a>
+                        {index < item.collaborators.length - 1 && ", "}
+                      </>
+                    ))}
+                  </p>
+                )}
               </div>
               <time>{item.period}</time>
             </article>
@@ -187,3 +198,5 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <p>© {new Date().getFullYear()} {profile.name}</p>
   </footer>
 </BaseLayout>
+
+

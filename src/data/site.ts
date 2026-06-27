@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Edit this file to update the website's content.
  * Page components should rarely need to change.
  */
@@ -9,13 +9,13 @@ export const profile = {
   email: "liyuan@keio.jp",
   location: "Tokyo, Japan",
   portrait: "/images/yuan-li.jpg",
-  disciplines: ["Human–Computer Interaction", "Extended Reality", "Perception"],
+  disciplines: ["Human-Computer Interaction", "Extended Reality", "Perception"],
   headline: "Designing extended realities through the lens of human perception.",
   introduction:
     [
-    'Hi! I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision of Prof. <strong>Takeo Igarashi</strong> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human–machine interfaces (eHMIs) and human–vehicle interaction.',
-    'Before that, I received my Master’s degree from <strong>Keio University</strong>, where I was supervised by Prof. <strong>Kazunori Takashio</strong>, with additional supervision from Prof. <strong>Yuki Ban</strong> at <strong>UTokyo</strong>. My Master’s research explored how VR interfaces influence human perception and user experience.',
-    'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of Prof. <strong>Tobias Langlotz</strong>. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.',
+    'Hi! I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision of <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html"><strong>Takeo Igarashi</strong></a> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human-machine interfaces (eHMIs) and human-vehicle interaction.',
+    'Before that, I received my Master&apos;s degree from <strong>Keio University</strong>, where I was supervised by <a href="https://www.keio.ac.jp/en/faculty/k_100012605/"><strong>Kazunori Takashio</strong></a>, with additional supervision from <a href="https://yukib.github.io/"><strong>Yuki Ban</strong></a> at <strong>UTokyo</strong>. My Master&apos;s research explored how VR interfaces influence human perception and user experience.',
+    'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of <a href="https://cs.au.dk/~langlotz/"><strong>Tobias Langlotz</strong></a>. Building on my interests in perception and interaction design, my doctoral research will focus on calm technology and perception-driven XR interfaces.',
     ],
   currentRole: {
     title: "Technical Assistant",
@@ -89,7 +89,7 @@ export const publications: Publication[] = [
         url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/",
       },
     ],
-    venue: "ACM CHI Conference on Human Factors in Computing Systems (CHI ’26)",
+    venue: "ACM CHI Conference on Human Factors in Computing Systems (CHI '26)",
     summary:
       "We investigate Vision-Language Model personas as low-cost proxy participants for previewing embodied field studies before running them with real people.",
     image: "/images/peeking-ahead.webp",
@@ -114,9 +114,9 @@ export const publications: Publication[] = [
         url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index.html",
       },
     ],
-    venue: "13th International Conference on Human-Agent Interaction (HAI ’25)",
+    venue: "13th International Conference on Human-Agent Interaction (HAI '25)",
     summary:
-      "An exploration of an animal-inspired robotic tail as an external human–machine interface for communicating emotion and intent from automated vehicles.",
+      "An exploration of an animal-inspired robotic tail as an external human-machine interface for communicating emotion and intent from automated vehicles.",
     image: "/images/tailcue.webp",
     imageAlt: "TailCue robotic tail mounted on an automated vehicle",
     year: "2025",
@@ -133,10 +133,10 @@ export const publications: Publication[] = [
       { name: "Rui Zhang" },
       { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
       { name: "Yuki Ban", url: "https://yukib.github.io/" },
-      { name: "Shin’Ichi Warisawa" },
+      { name: "Shin'Ichi Warisawa" },
     ],
     venue:
-      "IEEE International Symposium on Mixed and Augmented Reality (ISMAR ’24)",
+      "IEEE International Symposium on Mixed and Augmented Reality (ISMAR '24)",
     summary:
       "A VR teleoperation technique that represents latency-induced position discrepancy as the dynamics of a virtual spring, improving user comfort and sense of presence.",
     image: "/images/virtual-spring.webp",
@@ -150,26 +150,26 @@ export const publications: Publication[] = [
 
 export const education = [
   {
-    period: "Aug. 2026 —",
+    period: "Aug. 2026 -",
     title: "PhD in Computer Science",
     institution: "Aarhus University",
     detail: "Incoming PhD student · Supervisor: Tobias Langlotz",
     upcoming: true,
   },
   {
-    period: "2023 — 2025",
+    period: "2023 - 2025",
     title: "Master of Media and Governance",
     institution: "Keio University",
     detail: "Graduate School of Media and Governance · Sociable Robots Lab · Supervisor: Kazunori Takashio",
   },
   {
-    period: "2023 — 2024",
+    period: "2023 - 2024",
     title: "Special Auditor Student",
     institution: "The University of Tokyo",
     detail: "Graduate School of Frontier Sciences · Human & Environment Informatics Lab · Supervisor: Yuki Ban",
   },
   {
-    period: "2018 — 2022",
+    period: "2018 - 2022",
     title: "Bachelor of Engineering",
     institution: "Jiangsu University of Science and Technology",
     detail: "Computer Science",
@@ -178,25 +178,30 @@ export const education = [
 
 export const experience = [
   {
-    period: "Dec. 2024 — present",
+    period: "Dec. 2024 - present",
     title: "Technical Assistant",
     institution: "The University of Tokyo",
     detail: "Graduate School of Information Science and Technology · Supervisor: Takeo Igarashi",
+    collaborators: [
+      { name: "Prof. Mark Colley", url: "https://m-colley.github.io/" },
+      { name: "Dr. Xinyue Gui", url: "https://xinyuegui.github.io/" },
+      { name: "Ding Xia", url: "https://apisxia.github.io/" },
+    ],
   },
   {
-    period: "Sep. 2023 — Aug. 2024",
+    period: "Sep. 2023 - Aug. 2024",
     title: "Research Collaborator",
     institution: "The University of Tokyo, RIISE",
     detail: "Co-creation Space Design, Social Collaboration Research Division",
   },
   {
-    period: "Apr. — Jun. 2024",
+    period: "Apr. - Jun. 2024",
     title: "Robotic Assembly Intern",
     institution: "Telexistence",
     detail: "",
   },
   {
-    period: "Oct. — Nov. 2021",
+    period: "Oct. - Nov. 2021",
     title: "AI Research Intern",
     institution: "Neusoft",
     detail: "",
@@ -227,7 +232,7 @@ export const service = [
   {
     year: "2026",
     title: "Reviewer",
-    institution: "International Journal of Human–Computer Studies (IJHCS)",
+    institution: "International Journal of Human鈥揅omputer Studies (IJHCS)",
   },
   {
     year: "2024",
@@ -235,3 +240,10 @@ export const service = [
     institution: "SIGGRAPH Asia 2024 · Tokyo, Japan",
   },
 ];
+
+
+
+
+
+
+
