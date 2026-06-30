@@ -171,7 +171,7 @@ h4 {
 
 .news-list li {
   display: grid;
-  grid-template-columns: 55px 1fr;
+  grid-template-columns: 96px minmax(0, 1fr);
   gap: 1rem;
   margin-bottom: 8px;
 }
@@ -191,7 +191,7 @@ time,
 
 .research-item {
   display: grid;
-  grid-template-columns: 188px 1fr;
+  grid-template-columns: 188px minmax(0, 1fr);
   gap: 24px;
   align-items: start;
   padding-bottom: 2px;
@@ -206,10 +206,16 @@ time,
   background: var(--surface);
 }
 
+.research-item > div {
+  min-width: 0;
+}
+
 .research-item h3 {
+  color: var(--blue);
   font-size: 1.01rem;
   line-height: 1.42;
   letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
 }
 
 .publication-heading {
@@ -263,6 +269,7 @@ time,
 
 .research-item .meta {
   margin-top: 2px;
+  overflow-wrap: anywhere;
 }
 
 .item-links {
@@ -301,7 +308,8 @@ time,
 .affiliation {
   color: #3d444a;
 }
-
+
+
 .collaborators a {
   color: var(--muted);
 }
@@ -413,7 +421,8 @@ footer p {
   .entry time {
     grid-row: 1;
     text-align: left;
-  }}
+  }
+}
 
 @media (max-width: 460px) {
   body {
@@ -449,6 +458,12 @@ footer p {
     width: 100%;
   }
 }
+
+
+
+
+
+
 
 
 

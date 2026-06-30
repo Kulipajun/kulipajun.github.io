@@ -10,6 +10,9 @@ import {
   service,
 } from "@data/site";
 import BaseLayout from "@layouts/BaseLayout.astro";
+
+const primaryLink = (publication: { links: { url: string }[] }) =>
+  publication.links[0]?.url;
 ---
 
 <BaseLayout
@@ -61,14 +64,22 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <div class="research-list">
         {publications.map((publication) => (
           <article class="research-item">
-            <a href={publication.links[0].url} aria-label={`Open ${publication.title}`}>
+            {primaryLink(publication) ? (
+              <a href={primaryLink(publication)} aria-label={`Open ${publication.title}`}>
+                <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
+              </a>
+            ) : (
               <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
-            </a>
+            )}
 
             <div>
               <div class="publication-heading">
                 <h3>
-                  <a href={publication.links[0].url}>{publication.title}</a>
+                  {primaryLink(publication) ? (
+                    <a href={primaryLink(publication)}>{publication.title}</a>
+                  ) : (
+                    publication.title
+                  )}
                 </h3>
 
                 {publication.award && (
@@ -103,9 +114,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
               <p>{publication.summary}</p>
 
-              <p class="item-links">
-                {publication.links.map((link) => <a href={link.url}>{link.label}</a>)}
-              </p>
+              {(publication.links.length > 0 || publication.status) && (
+                <p class="item-links">
+                  {publication.links.map((link) => <a href={link.url}>{link.label}</a>)}
+                  {publication.status && <span>{publication.status}</span>}
+                </p>
+              )}
 
               {publication.authors.some((author) => author.equal) && (
                 <p class="equal-note">
@@ -197,6 +211,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <p>© {new Date().getFullYear()} {profile.name}</p>
   </footer>
 </BaseLayout>
+
 
 
 

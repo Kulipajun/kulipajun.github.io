@@ -46,7 +46,11 @@ export const navigation = [
 
 export const news = [
   {
-    year: "2026",
+    year: "June 2026",
+    text: "One first-author paper and one co-authored paper were accepted with minor revision by IMWUT, and one co-authored UIST paper was conditionally accepted.",
+  },
+  {
+    year: "March 2026",
     text: "I will join Aarhus University as a PhD student in August 2026.",
   },
 ];
@@ -60,10 +64,36 @@ export type Publication = {
   imageAlt: string;
   year: string;
   award?: string;
+  status?: string;
   links: { label: string; url: string }[];
 };
 
 export const publications: Publication[] = [
+  {
+    title:
+      "BlurDriving: Investigating How Personalized Blur Techniques Impact Drivers’ Performance in Virtual Reality",
+    authors: [
+      { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+      { name: "Mark Colley", url: "https://m-colley.github.io/" },
+      { name: "Xinyue Gui", url: "https://xinyuegui.github.io/" },
+      { name: "Cristian Rendon-Cardona", url: "https://www.rendon-cristian.com/" },
+      { name: "Pascal Jansen", url: "https://pascal-jansen.github.io/" },
+      { name: "Christian Sandor", url: "https://drsandor.net/" },
+      {
+        name: "Takeo Igarashi",
+        url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/",
+      },
+    ],
+    venue:
+      "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT / UbiComp 2026) · Journal article",
+    summary:
+      "We investigate how personalized blur techniques in VR driving affect drivers’ performance and visual attention across road users and scene elements.",
+    image: "/images/blurdriving.webp",
+    imageAlt: "BlurDriving VR driving scene with personalized blur targets highlighted",
+    year: "2026",
+    status: "Accepted with minor revision · To appear",
+    links: [],
+  },
   {
     title:
       "Peeking Ahead of the Field Study: Exploring VLM Personas as Support Tools for Embodied Studies in HCI",
@@ -238,6 +268,11 @@ export const service = [
     institution: "SIGGRAPH Asia 2024",
   },
 ];
+
+
+
+
+
 
 
 
