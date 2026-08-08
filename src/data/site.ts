@@ -7,25 +7,25 @@ export const profile = {
   name: "Yuan Li",
   shortName: "YL",
   email: "liyuan@keio.jp",
-  location: "Tokyo, Japan",
+  location: "Aarhus, Denmark",
   portrait: "/images/yuan-li.jpg",
   disciplines: ["Human-Computer Interaction", "Extended Reality", "Perception"],
   headline: "I study how people perceive and interact with intelligent systems across physical and extended realities.",
   introduction:
     [
-    'I am a Human-Computer Interaction researcher currently working as a Technical Assistant under the supervision of <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html"><strong>Takeo Igarashi</strong></a> at <strong>The University of Tokyo (UTokyo)</strong>, where I work on external human-machine interfaces (eHMIs) and human-vehicle interaction.',
-    'Before that, I received my Master&apos;s degree from <strong>Keio University</strong>, supervised by <a href="https://www.keio.ac.jp/en/faculty/k_100012605/"><strong>Kazunori Takashio</strong></a>, with additional supervision from <a href="https://yukib.github.io/"><strong>Yuki Ban</strong></a> at <strong>UTokyo</strong>. My Master&apos;s research explored how VR interfaces influence human perception and user experience.',
-    'Starting in <strong>August 2026</strong>, I will join <strong>Aarhus University</strong> as a PhD student under the supervision of <a href="https://cs.au.dk/~langlotz/"><strong>Tobias Langlotz</strong></a>, focusing on calm technology and perception-driven XR interfaces.',
+    'I am a PhD student at <strong>Aarhus University</strong>, advised by <a href="https://cs.au.dk/~langlotz/"><strong>Tobias Langlotz</strong></a>. My research focuses on Human-Computer Interaction, Extended Reality, and perception-driven interfaces.',
+    'Before joining Aarhus, I worked as a Technical Assistant with <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html"><strong>Takeo Igarashi</strong></a> at <strong>The University of Tokyo (UTokyo)</strong>, where I collaborated with <a href="https://m-colley.github.io/"><strong>Mark Colley</strong></a> on external human-machine interfaces (eHMIs) and human-vehicle interaction.',
+    'I received my Master&apos;s degree from <strong>Keio University</strong>, supervised by <a href="https://www.keio.ac.jp/en/faculty/k_100012605/"><strong>Kazunori Takashio</strong></a>, with additional supervision from <a href="https://yukib.github.io/"><strong>Yuki Ban</strong></a> at <strong>UTokyo</strong>. My Master&apos;s research explored how VR interfaces influence human perception and user experience.',
     ],
   currentRole: {
-    title: "Technical Assistant",
-    institution: "The University of Tokyo",
-    url: "https://www-ui.is.s.u-tokyo.ac.jp/",
+    title: "PhD Student",
+    institution: "Aarhus University",
+    url: "https://cs.au.dk/",
   },
   nextRole: {
     title: "PhD Student",
     institution: "Aarhus University",
-    date: "August 2026",
+    date: "Since August 2026",
     supervisor: "Tobias Langlotz",
     institutionUrl: "https://international.au.dk/",
   },
@@ -37,14 +37,19 @@ export const profile = {
 };
 
 export const navigation = [
-  { label: "News", href: "#news" },
-  { label: "Research", href: "#research" },
-  { label: "Education", href: "#education" },
-  { label: "Experience", href: "#experience" },
-  { label: "Awards", href: "#awards" },
+  { label: "News", href: "/#news" },
+  { label: "Research", href: "/#research" },
+  { label: "Publications", href: "/publications/" },
+  { label: "Education", href: "/#education" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Awards", href: "/#awards" },
 ];
 
 export const news = [
+  {
+    year: "August 2026",
+    text: "I joined Aarhus University as a PhD student.",
+  },
   {
     year: "June 2026",
     text: "One first-author paper and one co-authored paper were accepted with minor revision by IMWUT, and one co-authored UIST paper was conditionally accepted.",
@@ -67,6 +72,11 @@ export type Publication = {
   status?: string;
   links: { label: string; url: string }[];
 };
+
+export type PublicationListItem = Pick<
+  Publication,
+  "title" | "authors" | "venue" | "year" | "award" | "status" | "links"
+>;
 
 export const publications: Publication[] = [
   {
@@ -91,8 +101,10 @@ export const publications: Publication[] = [
     image: "/images/blurdriving.webp",
     imageAlt: "BlurDriving VR driving scene with personalized blur targets highlighted",
     year: "2026",
-    status: "Accepted with minor revision · To appear",
-    links: [],
+    links: [
+      { label: "Project", url: "https://theliyuan.com/BlurDriving/" },
+      { label: "DOI", url: "https://doi.org/10.1145/3831646" },
+    ],
   },
   {
     title:
@@ -120,7 +132,7 @@ export const publications: Publication[] = [
         url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/",
       },
     ],
-    venue: "ACM CHI Conference on Human Factors in Computing Systems (CHI '26)",
+    venue: "Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems (CHI '26)",
     summary:
       "We investigate Vision-Language Model personas as low-cost proxy participants for previewing embodied field studies before running them with real people.",
     image: "/images/peeking-ahead.webp",
@@ -145,7 +157,7 @@ export const publications: Publication[] = [
         url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index.html",
       },
     ],
-    venue: "13th International Conference on Human-Agent Interaction (HAI '25)",
+    venue: "Proceedings of the 13th International Conference on Human-Agent Interaction (HAI '25)",
     summary:
       "An exploration of an animal-inspired robotic tail as an external human-machine interface for communicating emotion and intent from automated vehicles.",
     image: "/images/tailcue.webp",
@@ -167,7 +179,7 @@ export const publications: Publication[] = [
       { name: "Shin'Ichi Warisawa" },
     ],
     venue:
-      "IEEE International Symposium on Mixed and Augmented Reality (ISMAR '24)",
+      "2024 IEEE International Symposium on Mixed and Augmented Reality (ISMAR '24)",
     summary:
       "A VR teleoperation technique that represents latency-induced position discrepancy as the dynamics of a virtual spring, improving user comfort and sense of presence.",
     image: "/images/virtual-spring.webp",
@@ -179,21 +191,122 @@ export const publications: Publication[] = [
   },
 ];
 
+export const allPublications: {
+  fullPapers: PublicationListItem[];
+  posters: PublicationListItem[];
+} = {
+  fullPapers: [
+    {
+      title:
+        "Tap2Stop: Pedestrian-Activated Emergency Stop for Autonomous Vehicles",
+      authors: [
+        { name: "Xinyue Gui", url: "https://xinyuegui.github.io/" },
+        { name: "Ding Xia", url: "https://apisxia.github.io/" },
+        { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+        { name: "Mark Colley", url: "https://m-colley.github.io/" },
+        { name: "Chia-Ming Chang", url: "https://chiamingchang.com/" },
+        { name: "Stela Hanbyeol Seo", url: "https://stelaseo.ca/" },
+        {
+          name: "Manabu Tsukada",
+          url: "https://tlab.hongo.wide.ad.jp/People/manabu-tsukada/",
+        },
+        {
+          name: "Takeo Igarashi",
+          url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/",
+        },
+      ],
+      venue:
+        "Proceedings of the 39th Annual ACM Symposium on User Interface Software and Technology (UIST '26)",
+      year: "2026",
+      status: "Conditionally accepted",
+      links: [],
+    },
+    publications[0],
+    {
+      title:
+        "Comparing Preferences Between Japan and Germany for External Communication of Automated Vehicles Using Bayesian Optimization",
+      authors: [
+        { name: "Mark Colley", url: "https://m-colley.github.io/" },
+        { name: "Pascal Jansen", url: "https://pascal-jansen.github.io/" },
+        { name: "Xinyue Gui", url: "https://xinyuegui.github.io/" },
+        { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+        { name: "Ding Xia", url: "https://apisxia.github.io/" },
+        { name: "Enrico Rukzio" },
+        {
+          name: "Takeo Igarashi",
+          url: "https://www-ui.is.s.u-tokyo.ac.jp/~takeo/",
+        },
+      ],
+      venue:
+        "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT / UbiComp 2026) · Journal article",
+      year: "2026",
+      status: "Accepted with minor revision, to appear",
+      links: [],
+    },
+    ...publications.slice(1),
+  ],
+  posters: [
+    {
+      title: "Shooting-based Technique: Highly Interactive Virtual Reality Locomotion",
+      authors: [
+        { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+        {
+          name: "Kazunori Takashio",
+          url: "https://www.k-ris.keio.ac.jp/html/100012605_en.html",
+        },
+      ],
+      venue:
+        "Proceedings of the 2023 ACM Symposium on Spatial User Interaction (SUI '23)",
+      year: "2023",
+      links: [
+        { label: "DOI", url: "https://doi.org/10.1145/3607822.3618010" },
+      ],
+    },
+    {
+      title: "Enhance Flight Experience Through Wind-based Cross-modal Effect",
+      authors: [
+        { name: "Yuan Li", url: "https://theliyuan.com/", self: true },
+        { name: "Jiayi Hu" },
+        { name: "Du Jin" },
+        { name: "Juro Hosoi" },
+        { name: "Rui Zhang" },
+        { name: "Yuki Ban", url: "https://yukib.github.io/" },
+        { name: "Shin'Ichi Warisawa" },
+        {
+          name: "Kazunori Takashio",
+          url: "https://www.k-ris.keio.ac.jp/html/100012605_en.html",
+        },
+      ],
+      venue:
+        "2024 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR 2024)",
+      year: "2024",
+      links: [
+        {
+          label: "DOI",
+          url: "https://doi.org/10.1109/ISMAR-Adjunct64951.2024.00181",
+        },
+      ],
+    },
+  ],
+};
+
 export const education = [
   {
     period: "Aug. 2026 -",
     title: "PhD in Computer Science",
-    institution: "Aarhus University",
-    detail: "Incoming PhD student · Supervisor: Tobias Langlotz",
-    upcoming: true,
+    institution: 'Aarhus University · <a href="https://cs.au.dk/">Department of Computer Science</a>',
+    detail: '<a href="https://cs.au.dk/research/section-on-human-centered-computing/section-members">Section on Human-Centered Computing</a>',
+    details: [
+      'Supervisor: <a href="https://cs.au.dk/~langlotz/">Tobias Langlotz</a>',
+    ],
   },
   {
     period: "2023 - 2025",
     title: "Master of Media and Governance",
     institution: "Keio University · The University of Tokyo Joint Graduate Program",
-    detail: "Graduate School of Media and Governance, Keio · Supervisor: Kazunori Takashio",
+    detail: 'Graduate School of Media and Governance, Keio · Supervisor: <a href="https://www.k-ris.keio.ac.jp/html/100012605_en.html">Kazunori Takashio</a>',
     details: [
-      "Graduate School of Frontier Sciences, UTokyo · Supervisor: Yuki Ban",
+      'Graduate School of Frontier Sciences, UTokyo · Supervisor: <a href="https://yukib.github.io/">Yuki Ban</a>',
     ],
   },
   {
@@ -206,13 +319,19 @@ export const education = [
 
 export const experience = [
   {
-    period: "Dec. 2024 - present",
+    period: "Aug. 2026 -",
+    title: "PhD Fellow",
+    institution: 'Aarhus University · <a href="https://cs.au.dk/">Department of Computer Science</a>',
+    detail: '<a href="https://cs.au.dk/research/section-on-human-centered-computing/section-members">Section on Human-Centered Computing</a> · Supervisor: <a href="https://cs.au.dk/~langlotz/">Tobias Langlotz</a>',
+  },
+  {
+    period: "Dec. 2024 - Jul. 2026",
     title: "Technical Assistant",
     institution: "The University of Tokyo",
-    detail: "Graduate School of Information Science and Technology · Supervisor: Takeo Igarashi",
+    detail: 'Graduate School of Information Science and Technology · Supervisor: <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html">Takeo Igarashi</a>',
     collaborators: [
-      { name: "Prof. Mark Colley", url: "https://m-colley.github.io/" },
-      { name: "Dr. Xinyue Gui", url: "https://xinyuegui.github.io/" },
+      { name: "Mark Colley", url: "https://m-colley.github.io/" },
+      { name: "Xinyue Gui", url: "https://xinyuegui.github.io/" },
       { name: "Ding Xia", url: "https://apisxia.github.io/" },
     ],
   },
@@ -238,8 +357,14 @@ export const experience = [
 
 export const recognition = [
   {
+    year: "2026",
+    title: "CHI 2026 Honorable Mention Award",
+    institution: "ACM",
+    type: "Award",
+  },
+  {
     year: "2025",
-    title: "Spring GX Program of Innovation for Intelligent World",
+    title: "JST Spring GX Program of Innovation for Intelligent World",
     institution: "The University of Tokyo",
     type: "Funding",
   },

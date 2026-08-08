@@ -130,6 +130,9 @@ const primaryLink = (publication: { links: { url: string }[] }) =>
           </article>
         ))}
       </div>
+      <div class="section-action">
+        <a class="text-button" href="/publications/">All Publications</a>
+      </div>
     </section>
 
     <section id="education">
@@ -139,10 +142,10 @@ const primaryLink = (publication: { links: { url: string }[] }) =>
           <article class="entry">
             <div>
               <h4>{item.title}</h4>
-              <p class="affiliation">{item.institution}</p>
-              {item.detail && <p class="detail">{item.detail}</p>}
+              <p class="affiliation" set:html={item.institution} />
+              {item.detail && <p class="detail" set:html={item.detail} />}
               {"details" in item && item.details && item.details.map((detail) => (
-                <p class="detail">{detail}</p>
+                <p class="detail" set:html={detail} />
               ))}
             </div>
             <time>{item.period}</time>
@@ -158,8 +161,8 @@ const primaryLink = (publication: { links: { url: string }[] }) =>
           <article class="entry">
             <div>
               <h4>{item.title}</h4>
-              <p class="affiliation">{item.institution}</p>
-              {item.detail && <p class="detail">{item.detail}</p>}
+              <p class="affiliation" set:html={item.institution} />
+              {item.detail && <p class="detail" set:html={item.detail} />}
               {"collaborators" in item && item.collaborators && (
                 <p class="detail collaborators">
                   Main collaborators:{" "}
@@ -204,6 +207,10 @@ const primaryLink = (publication: { links: { url: string }[] }) =>
           </li>
         ))}
       </ul>
+    </section>
+
+    <section class="secret-link-section" aria-label="Secret Base">
+      <a class="secret-link" href="/secret-base/">Secret Base</a>
     </section>
   </main>
 

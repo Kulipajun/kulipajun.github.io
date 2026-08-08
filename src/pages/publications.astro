@@ -1,0 +1,102 @@
+---
+import { allPublications, navigation, profile } from "@data/site";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const renderAuthors = (authors: { name: string; url?: string; self?: boolean }[]) =>
+  authors
+    .map((author) => {
+      const name = author.self ? `<strong>${author.name}</strong>` : author.name;
+      return author.url ? `<a href="${author.url}">${name}</a>` : name;
+    })
+    .join(", ");
+---
+
+<BaseLayout
+  title={`Publications — ${profile.name}`}
+  description="Full publication list of Yuan Li"
+>
+  <header class="site-nav">
+    <a class="site-name" href="/">{profile.name}</a>
+    <nav aria-label="Main navigation">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </header>
+
+  <main class="container publication-page">
+    <section class="page-intro">
+      <h1>Publications</h1>
+      <p>
+        A complete list of published and accepted research papers.
+      </p>
+    </section>
+
+    <section>
+      <h2>Full Paper</h2>
+      <div class="publication-list">
+        {allPublications.fullPapers.map((publication) => (
+          <article class="publication-list-item">
+            <time>{publication.year}</time>
+            <div>
+              <h3>{publication.title}</h3>
+              <p class="authors" set:html={renderAuthors(publication.authors)} />
+              <p class="meta">{publication.venue}</p>
+              {publication.award && (
+                <p class="publication-note award-note">
+                  <span aria-hidden="true">✦</span>
+                  {publication.award}
+                </p>
+              )}
+              {publication.status && (
+                <p class="publication-note">{publication.status}</p>
+              )}
+              {publication.links.length > 0 && (
+                <p class="item-links">
+                  {publication.links.map((link, index) => (
+                    <>
+                      <a href={link.url}>{link.label}</a>
+                      {index < publication.links.length - 1 && " · "}
+                    </>
+                  ))}
+                </p>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Poster</h2>
+      {allPublications.posters.length > 0 ? (
+        <div class="publication-list">
+          {allPublications.posters.map((publication) => (
+            <article class="publication-list-item">
+              <time>{publication.year}</time>
+              <div>
+                <h3>{publication.title}</h3>
+                <p class="authors" set:html={renderAuthors(publication.authors)} />
+                <p class="meta">{publication.venue}</p>
+                {publication.links.length > 0 && (
+                  <p class="item-links">
+                    {publication.links.map((link, index) => (
+                      <>
+                        <a href={link.url}>{link.label}</a>
+                        {index < publication.links.length - 1 && " · "}
+                      </>
+                    ))}
+                  </p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="empty-note">Poster publications will be added here.</p>
+      )}
+    </section>
+  </main>
+
+  <footer>
+    <p>© {new Date().getFullYear()} {profile.name}</p>
+  </footer>
+</BaseLayout>
